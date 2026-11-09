@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Administrador - Mi Tienda Online</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .login {
+            background: white;
+            width: 350px;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+
+        .login h1 {
+            margin-bottom: 10px;
+        }
+
+        .login p {
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        .login input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 12px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .login button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 15px;
+            border: none;
+            border-radius: 8px;
+            background: #333;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .login button:hover {
+            background: #555;
+        }
+
+        #mensaje {
+            margin-top: 15px;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="login">
+
+        <h1>✏️ Mi Tienda Online</h1>
+
+        <p>Panel de administrador</p>
+
+        <input
+            type="email"
+            id="correo"
+            placeholder="Correo electrónico"
+        >
+
+        <input
+            type="password"
+            id="password"
+            placeholder="Contraseña"
+        >
+
+        <button id="iniciar-sesion">
+            Iniciar sesión
+        </button>
+
+        <div id="mensaje"></div>
+
+    </div>
+
+    <script type="module">
+
+        import { auth } from "../js/firebase.js";
+
+        import {
+            signInWithEmailAndPassword
+        } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
+
+
+        document
+            .getElementById("iniciar-sesion")
+            .addEventListener("click", async () => {
+
+                const correo =
+                    document.getElementById("correo").value.trim();
+
+                const password =
+                    document.getElementById("password").value;
+
+
+                if (!correo || !password) {
+
+                    document.getElementById("mensaje").textContent =
+                        "Escribe tu correo y contraseña.";
+
+                    return;
+                }
+
+
+                try {
+
+                    await signInWithEmailAndPassword(
+                        auth,
+                        correo,
+                        password
+                    );
+
+                    window.location.href = "panel.html";
+
+                } catch (error) {
+
+                    console.error(error);
+
+                    document.getElementById("mensaje").textContent =
+                        "Correo o contraseña incorrectos.";
+
+                }
+
+            });
+
+    </script>
+
+</body>
+</html>

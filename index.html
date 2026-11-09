@@ -1,0 +1,171 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Tienda Online - Lápices</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+    <header>
+        <h1>✏️ Mi Tienda Online</h1>
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#productos">Productos</a>
+            <a href="#carrito">Carrito 🛒 (<span id="contador">0</span>)</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="bienvenida" id="inicio">
+            <h2>Bienvenido a nuestra tienda de lápices</h2>
+            <p>Encuentra lápices escolares, de grafito y bicolor al mejor precio.</p>
+            <a href="#productos" class="boton-enlace">Ver productos</a>
+        </section>
+
+        <section id="productos">
+            <h2>Nuestros productos</h2>
+
+            <div class="productos">
+
+                <article class="producto">
+                    <img src="imagenes/maped-black-peps.png"
+                         alt="Lápiz escolar Maped Black Peps">
+                    <h3>Lápiz escolar Maped Black Peps</h3>
+                    <p>Lápiz escolar HB número 2, ideal para tareas y escritura.</p>
+                    <strong>$12.00 MXN</strong>
+                    <button class="agregar" data-id="maped">
+                        Agregar al carrito
+                    </button>
+                </article>
+
+                <article class="producto">
+                    <img src="imagenes/bic-evolution-hb.png"
+                         alt="Lápiz de grafito BIC Evolution HB">
+                    <h3>Lápiz de dibujar BIC Evolution HB</h3>
+                    <p>Lápiz de grafito para dibujar, escribir y realizar bocetos.</p>
+                    <strong>$8.00 MXN</strong>
+                    <button class="agregar" data-id="bic">
+                        Agregar al carrito
+                    </button>
+                </article>
+
+                <article class="producto">
+                    <div class="contenedor-bicolor">
+                        <div class="lapiz-bicolor">
+                            <div class="punta"></div>
+                            <div class="cuerpo-bicolor">
+                                <div class="lado-grafito"></div>
+                                <div class="lado-rojo"></div>
+                            </div>
+                            <div class="borrador"></div>
+                        </div>
+                        <p class="texto-animado">Lápiz bicolor animado ✨</p>
+                    </div>
+
+                    <h3>Lápiz bicolor rojo y grafito</h3>
+                    <p>Dos colores en un solo lápiz para marcar, dibujar y escribir.</p>
+                    <strong>$10.00 MXN</strong>
+                    <button class="agregar" data-id="bicolor">
+                        Agregar al carrito
+                    </button>
+                </article>
+
+            </div>
+        </section>
+
+        <section id="carrito">
+            <h2>🛒 Carrito de compras</h2>
+            <p>Revisa los productos que has seleccionado.</p>
+
+            <div id="lista-carrito">
+                <p class="vacio">Tu carrito está vacío.</p>
+            </div>
+
+            <div class="total">
+                <span>Total de la compra:</span>
+                <strong id="total">$0.00 MXN</strong>
+            </div>
+            <div class="acciones-carrito">
+
+    <button id="vaciar" class="boton-secundario">
+        Vaciar carrito
+    </button>
+
+    <button id="generar-ticket" class="agregar">
+        Generar ticket
+    </button>
+
+</div>
+
+<div id="datos-cliente" class="datos-cliente">
+
+    <h3>📦 Datos para realizar el pedido</h3>
+
+    <label for="nombre-cliente">Nombre completo:</label>
+    <input
+        type="text"
+        id="nombre-cliente"
+        placeholder="Escribe tu nombre"
+    >
+
+    <label for="telefono-cliente">Teléfono:</label>
+    <input
+        type="tel"
+        id="telefono-cliente"
+        placeholder="Escribe tu teléfono"
+    >
+
+    <label for="direccion-cliente">Dirección:</label>
+    <textarea
+        id="direccion-cliente"
+        placeholder="Escribe tu dirección"
+    ></textarea>
+
+    <button id="realizar-pedido" class="agregar">
+        Realizar pedido
+    </button>
+
+</div>
+          <div id="datos-cliente" class="datos-cliente">
+    <h3>📦 Datos para realizar el pedido</h3>
+
+    <label for="nombre-cliente">Nombre completo:</label>
+    <input type="text" id="nombre-cliente" placeholder="Escribe tu nombre">
+
+    <label for="telefono-cliente">Teléfono:</label>
+    <input type="tel" id="telefono-cliente" placeholder="Escribe tu teléfono">
+
+    <label for="direccion-cliente">Dirección:</label>
+    <textarea id="direccion-cliente" placeholder="Escribe tu dirección"></textarea>
+
+    <button id="realizar-pedido" class="agregar">
+        Realizar pedido
+    </button>
+     </div>
+            
+               
+            <p class="aviso">
+            
+            </p>
+        </section>
+
+        <section id="ticket" hidden>
+            <div id="contenido-ticket"></div>
+            <button id="imprimir" class="agregar">
+                Imprimir ticket / Guardar como PDF
+            </button>
+        </section>
+    </main>
+
+    <footer id="contacto">
+        <p>© 2026 Mi Tienda Online de Lápices</p>
+        <p>Todos los derechos reservados.</p>
+    </footer>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>

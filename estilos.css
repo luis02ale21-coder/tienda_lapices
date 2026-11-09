@@ -1,0 +1,435 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.5;
+}
+
+header {
+    background-color: #222;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin-bottom: 15px;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+.bienvenida {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: white;
+}
+
+.bienvenida h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.bienvenida p {
+    margin-bottom: 20px;
+}
+
+.boton-enlace {
+    display: inline-block;
+    background-color: #222;
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+}
+
+.boton-enlace:hover {
+    background-color: #444;
+}
+
+#productos,
+#carrito {
+    max-width: 1200px;
+    margin: auto;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+#productos h2,
+#carrito h2 {
+    margin-bottom: 15px;
+}
+
+.productos {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 25px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.producto {
+    background-color: white;
+    width: 280px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.producto img {
+    width: 100%;
+    height: 230px;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+.producto h3 {
+    margin-bottom: 10px;
+}
+
+.producto p {
+    margin-bottom: 15px;
+    color: #555;
+    flex-grow: 1;
+}
+
+.producto strong {
+    display: block;
+    font-size: 22px;
+    margin: 10px 0 15px;
+}
+
+button {
+    border: none;
+    font-family: inherit;
+    font-size: 15px;
+}
+
+.agregar {
+    background-color: #222;
+    color: white;
+    padding: 12px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.agregar:hover {
+    background-color: #444;
+}
+
+.agregar:active {
+    transform: scale(0.98);
+}
+
+/* Lápiz bicolor animado */
+
+.contenedor-bicolor {
+    height: 230px;
+    background-color: #faf5e9;
+    border-radius: 7px;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    overflow: hidden;
+}
+
+.lapiz-bicolor {
+    height: 165px;
+    width: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: moverLapiz 2.5s ease-in-out infinite;
+    filter: drop-shadow(3px 4px 3px #0003);
+}
+
+.punta {
+    width: 0;
+    height: 0;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-bottom: 25px solid #d9bd8d;
+    position: relative;
+}
+
+.punta::after {
+    content: "";
+    position: absolute;
+    top: 20px;
+    left: -3px;
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+    border-bottom: 6px solid #333;
+}
+
+.cuerpo-bicolor {
+    width: 24px;
+    height: 125px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid #c8bba7;
+    border-radius: 3px;
+}
+
+.lado-grafito {
+    height: 50%;
+    background: linear-gradient(
+        90deg, #d6c7a5, #fff5dc, #d4c39d
+    );
+}
+
+.lado-rojo {
+    height: 50%;
+    background: linear-gradient(
+        90deg, #a71922, #ef3e45, #b91d29
+    );
+}
+
+.borrador {
+    width: 24px;
+    height: 12px;
+    background-color: #e7a0a5;
+    border-radius: 4px 4px 2px 2px;
+}
+
+.texto-animado {
+    font-size: 13px;
+    color: #555;
+    font-weight: bold;
+}
+
+@keyframes moverLapiz {
+    0%, 100% {
+        transform: rotate(-10deg) translateY(0);
+    }
+
+    50% {
+        transform: rotate(10deg) translateY(-8px);
+    }
+}
+
+/* Carrito de compras */
+
+#lista-carrito {
+    margin-top: 25px;
+    text-align: left;
+}
+
+.vacio {
+    background: white;
+    border: 1px dashed #bbb;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    color: #666;
+}
+
+.fila-carrito {
+    display: grid;
+    grid-template-columns: 1fr auto auto auto;
+    gap: 15px;
+    align-items: center;
+    background: white;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px #0001;
+}
+
+.nombre-carrito {
+    font-weight: bold;
+}
+
+.precio-unitario {
+    color: #666;
+    font-size: 13px;
+}
+
+.cantidad-controles {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.cantidad-controles button,
+.quitar {
+    background: #eee;
+    padding: 6px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.quitar {
+    background: #f8e2e2;
+    color: #9a2020;
+}
+
+.total {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    align-items: center;
+    border-top: 2px solid #ddd;
+    margin-top: 20px;
+    padding: 20px 0;
+    font-size: 20px;
+}
+
+.total strong {
+    font-size: 24px;
+}
+
+.acciones-carrito {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.boton-secundario {
+    background-color: #ddd;
+    color: #333;
+    padding: 12px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.boton-secundario:hover {
+    background-color: #ccc;
+}
+
+.aviso {
+    margin-top: 15px;
+    color: #777;
+    font-size: 13px;
+}
+
+/* Ticket de compra */
+
+#ticket {
+    max-width: 800px;
+    margin: 0 auto 40px;
+    padding: 25px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px #0002;
+}
+
+.ticket-encabezado {
+    text-align: center;
+    border-bottom: 1px dashed #777;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+.tabla-ticket {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+}
+
+.tabla-ticket th,
+.tabla-ticket td {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 5px;
+    text-align: left;
+}
+
+.total-ticket {
+    text-align: right;
+    font-size: 22px;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+footer {
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 25px;
+    margin-top: 40px;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+@media (max-width: 650px) {
+    .bienvenida h2 {
+        font-size: 25px;
+    }
+
+    .producto {
+        width: 100%;
+        max-width: 340px;
+    }
+
+    .fila-carrito {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .total {
+        font-size: 17px;
+    }
+
+    .total strong {
+        font-size: 21px;
+    }
+
+    nav {
+        gap: 12px;
+    }
+}
+
+@media print {
+    body {
+        background: white;
+    }
+
+    header,
+    main > section:not(#ticket),
+    footer,
+    #imprimir {
+        display: none !important;
+    }
+
+    #ticket {
+        display: block !important;
+        max-width: none;
+        margin: 0;
+        box-shadow: none;
+    }
+}
